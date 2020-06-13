@@ -10,7 +10,7 @@ function handleSumitName(event) {
   event.preventDefault();
 
   const currentValue = inputName.value;
-  nameInfo.innerText = currentUser;
+  nameInfo.innerText = currentValue;
   saveName(currentValue);
   toggleDisplay();
 }
@@ -18,7 +18,6 @@ function handleSumitName(event) {
 function toggleDisplay() {
   chatFirst.classList.toggle("hiding");
   chatSecond.classList.toggle("hiding");
-
 }
 
 function loadName() {

@@ -146,7 +146,7 @@ input {
 
   font-style: "Rubik", sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ input {
   text-align: center;
   font-style: "Rubik", sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .hiding {
@@ -210,7 +210,6 @@ button {
   display: inline-block;
   width: 400px;
   height: 400px;
-  background-image: url("../img/chracter.jpg");
   background-repeat: no-repeat;
   background-size: 500px;
   background-position: right;
