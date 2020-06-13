@@ -3,27 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <title>Javis</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="js-clock">
-      <h1>00:00</h1>
+    <header class="header">
+      <div class="title">
+        <span>
+          Hello Javis
+        </span>
+      </div>
+      <div class="info-content"></div>
+    </header>
+    <div class="bubble-chat sb">
+      <div class="bubble-chat__chat-wrapper chat-wrapper-first">
+        <div class="animation-typing">Hello, What your Name?</div>
+        <form class="bubble-chat__form-name">
+          <input
+            type="text"
+            placeholder="input your name"
+            class="bubble-chat__input-name delay-two"
+          />
+        </form>
+      </div>
+      <div class="bubble-chat__chat-wrapper chat-wrapper-second">
+        <div class="bubble-chat__chat-wrapper">
+          <div class="animation-typing">
+            Hello 👐,
+            <span class="name highlight-text"></span>
+          </div>
+        </div>
+        <div class="bubble-chat__chat-wrapper">
+          <div class="animation-typing delay-two">
+            Your location 🌏 is
+            <span class="location highlight-text"></span>.
+          </div>
+        </div>
+        <div class="bubble-chat__chat-wrapper">
+          <div class="animation-typing delay-four">
+            Currunt time 🕐 is
+            <span class="time highlight-text"> </span>.
+          </div>
+        </div>
+        <div class="bubble-chat__chat-wrapper">
+          <div class="animation-typing delay-six">
+            Currunt temperature 🌪 is
+            <span class="temperature highlight-text"></span>.
+          </div>
+        </div>
+        <br />
+        <div class="bubble-chat__chat-wrapper">
+          <div class="animation-typing delay-eight">
+            What do you do today?
+          </div>
+        </div>
+        <form class="bubble-chat__form-info">
+          <input
+            type="text"
+            placeholder="input do something"
+            class="bubble-chat__input-info delay-ten"
+          />
+        </form>
+      </div>
     </div>
-    <form class="js-form form">
-      <input type="text" placeholder="What is your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
-    <form class="js-toDoForm">
-      <input type="text" placeholder="Write a to do" />
-    </form>
 
-    <ul class="js-toDoList"></ul>
-    <span class="js-weather"></span>
-    <script src="js/clock.js"></script>
+    <div class="content-bottom">
+      <div class="content-bottom__board">
+        <div class="board board__todo">
+          <div class="board__todo title">Todo</div>
+          <ul class="board__todo list"></ul>
+        </div>
+        <div class="board board__done">
+          <div class="board__done title">Done</div>
+          <ul class="board__done list"></ul>
+        </div>
+      </div>
+      <div class="content-bottom__character"></div>
+    </div>
     <script src="js/greeting.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/info.js"></script>
     <script src="js/todo.js"></script>
-    <script src="js/bg.js"></script>
-    <script src="js/weather.js"></script>
   </body>
 </html>

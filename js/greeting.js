@@ -1,43 +1,47 @@
-const form = document.querySelector(".js-form");
-const input = form.querySelector("input");
-const greeting = document.querySelector(".js-greetings");
+const chatFirst = document.querySelector(".chat-wrapper-first");
+const chatSecond = document.querySelector(".chat-wrapper-second");
+const formName = document.querySelector(".bubble-chat__form-name");
+const inputName = document.querySelector(".bubble-chat__input-name");
+const nameInfo = document.querySelector(".name");
 
 const USER_LS = "currentUser";
-const SHOWING_CN = "showing";
 
-function saveName(text) {
-    localStorage.setItem(USER_LS, text);
+function handleSumitName(event) {
+  event.preventDefault();
+
+  const currentValue = inputName.value;
+  saveName(currentValue);
+  toggleDisplay();
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
-    const currentValue = input.value;
-    paintGreeting(currentValue);
-    saveName(currentValue);
+function toggleDisplay() {
+  chatFirst.classList.toggle("hiding");
+  chatSecond.classList.toggle("hiding");
 }
 
-function askForName() {
-    form.classList.add(SHOWING_CN);
-    form.addEventListener("submit", handleSubmit);
+function loadName() {
+  const currentUser = localStorage.getItem(USER_LS);
+  return currentUser;
 }
 
-function paintGreeting(text) {
-    form.classList.remove(SHOWING_CN);
-    greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello ${text}`;
+function saveName(name) {
+  localStorage.setItem(USER_LS, name);
 }
 
-function loadName(){
-    const currentUser = localStorage.getItem(USER_LS);
-    if(currentUser === null) {
-        askForName();
-    } else {
-        paintGreeting(currentUser);
-    }
+function init() {
+  const currentUser = loadName();
+
+  if (currentUser === null) {
+    chatFirst.classList.remove("hiding");
+    chatSecond.classList.add("hiding");
+  } else {
+    chatSecond.classList.remove("hiding");
+    chatFirst.classList.add("hiding");
+
+    nameInfo.innerText = currentUser;
+  }
 }
 
-function init(){
-    loadName();
-}
+formName.addEventListener("submit", handleSumitName);
 
 init();
