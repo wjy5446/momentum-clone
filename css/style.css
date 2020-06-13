@@ -172,7 +172,7 @@ input {
   display: flex;
   justify-content: space-evenly;
   width: 50%;
-  height: 300px;
+  height: auto;
   margin-left: 100px;
   margin-top: 40px;
 }
