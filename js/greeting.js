@@ -17,6 +17,8 @@ function handleSumitName(event) {
 function toggleDisplay() {
   chatFirst.classList.toggle("hiding");
   chatSecond.classList.toggle("hiding");
+  nameInfo.innerText = currentUser;
+
 }
 
 function loadName() {
@@ -37,7 +39,6 @@ function init() {
   } else {
     chatSecond.classList.remove("hiding");
     chatFirst.classList.add("hiding");
-
     nameInfo.innerText = currentUser;
   }
 }

@@ -49,12 +49,13 @@ function loadCoords() {
   const loadedWeather = localStorage.getItem(WEATHER);
   if (loadedCoords === null) {
     askForCoords();
-  } else {
-    if (loadedWeather === null) {
-      const parseCoords = JSON.parse(loadedCoords);
-      getWeather(parseCoords.latitude, parseCoords.longitude);
-    }
+  } 
+  
+  if (loadedWeather === null) {
+    const parseCoords = JSON.parse(loadedCoords);
+    getWeather(parseCoords.latitude, parseCoords.longitude);
   }
+  
 }
 
 function init() {
