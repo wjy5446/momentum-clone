@@ -32,10 +32,10 @@
 
 @keyframes show {
   from {
-    opacity: 0%;
+    opacity: 0;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -48,7 +48,7 @@
   }
 }
 
-@keyframes blink-caret {
+@keyframes cursor {
   from,
   0% {
     border-color: transparent;
@@ -109,7 +109,7 @@
   white-space: nowrap;
   border-right: 10px solid #ff4f5a;
   animation: typing 2s steps(40, end) forwards,
-    blink-caret 2s steps(40, end) forwards, show 0.2s ease forwards;
+    cursor 2s steps(40, end) forwards, show 0.2s ease forwards;
 }
 
 .delay-two {
@@ -138,7 +138,7 @@
 
 input {
   margin: 10px;
-  opacity: 0%;
+  opacity: 0;
   border: none;
   border-bottom: 5px solid #ff4f5a;
   outline: 0;
