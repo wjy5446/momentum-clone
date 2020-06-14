@@ -2,8 +2,27 @@ const temperInfo = document.querySelector(".temperature");
 const locationInfo = document.querySelector(".location");
 
 const API_KEY = "72a5e5f820cce3978271001fc5c5f5fc";
-const COORDS = "coords";
+const LOCATION = "location";
 const WEATHER = "weather";
+
+function saveInfo(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function handleGeoSuccess(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  getWeather(latitude, longitude);
+}
+
+function handleGeoError() {
+  console.log("cant access!!");
+}
+
+function getCoords() {
+  navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
+}
 
 function getWeather(lat, lon) {
   fetch(
@@ -15,47 +34,25 @@ function getWeather(lat, lon) {
     .then(function (json) {
       const temperture = json.main.temp;
       const place = json.name;
+
+      saveInfo(LOCATION, place);
+      saveInfo(WEATHER, place);
+
       temperInfo.innerHTML = `${temperture}`;
       locationInfo.innerHTML = `${place}`;
     });
 }
 
-function saveCoords(coordsObj) {
-  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
-}
-
-function handleGeoSuccess(position) {
-  console.log(position);
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  const coordsObj = {
-    latitude,
-    longitude,
-  };
-
-  saveCoords(coordsObj);
-}
-
-function handleGeoError() {
-  console.log("cant access!!");
-}
-
-function askForCoords() {
-  navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
-}
-
 function loadCoords() {
-  const loadedCoords = localStorage.getItem(COORDS);
+  const loadedLocation = localStorage.getItem(LOCATION);
   const loadedWeather = localStorage.getItem(WEATHER);
-  if (loadedCoords === null) {
-    askForCoords();
-  } 
-  
-  if (loadedWeather === null) {
-    const parseCoords = JSON.parse(loadedCoords);
-    getWeather(parseCoords.latitude, parseCoords.longitude);
+
+  if ((loadedWeather === null) | (loadedLocation === null)) {
+    getCoords();
+  } else {
+    temperInfo.innerHTML = loadedWeather;
+    locationInfo.innerHTML = loadedLocation;
   }
-  
 }
 
 function init() {
