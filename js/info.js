@@ -36,7 +36,7 @@ function getWeather(lat, lon) {
       const place = json.name;
 
       saveInfo(LOCATION, place);
-      saveInfo(WEATHER, place);
+      saveInfo(WEATHER, temperture);
 
       temperInfo.innerHTML = `${temperture}`;
       locationInfo.innerHTML = `${place}`;
