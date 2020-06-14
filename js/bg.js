@@ -6,7 +6,7 @@ function handleLaod() {
 }
 
 function paintImage(imgNumber) {
-  const pathImage = `momumtum-clone/img/${imgNumber + 1}.jpg`;
+  const pathImage = `img/${imgNumber + 1}.jpg`;
   character.style.backgroundImage = `url("${pathImage}")`;
 }
 
